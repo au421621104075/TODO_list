@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#input {
+    padding: 12px;
+    width: 300px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+#input:focus {
+    border-color: #b67a13;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(182, 122, 19, 0.3);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #b67a13;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #8e5c0d;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Value (Todo Items) Container */
+#value {
+    margin-top: 30px;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+h5 {
+    margin: 10px 0;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    color: #555;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    
+}
+
+h5:hover {
+    background-color: #f4f4f4;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.remove-btn {
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: #e03c3c;
+    transform: scale(1.1);
+}
+
+.remove-btn:active {
+    transform: scale(1);
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+    <h1>TODO List</h1>
+    <input id="input" placeholder="enter ......">
+    <button onclick="add()">ADD</button>
+
+    <p id="value">
+    </p>
+    <script>
+        var input = document.getElementById("input")
+        var value = document.getElementById("value")
+        function add() {
+            var h = document.createElement("h5")
+            h.innerHTML = input.value + '<button onclick="removedel(event)">X</button>'
+            input.value = ""
+            value.appendChild(h)
+        }
+        function removedel(event) {
+            event.target.parentElement.remove()
+
+        }
+
+    </script>
+</body>
+
+</html>
